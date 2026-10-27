@@ -1,0 +1,31 @@
+# No publicar respaldos, credenciales, archivos de desarrollo ni paquetes descargables.
+Options -Indexes
+RewriteEngine On
+
+# Rutas públicas: se ejecutan internamente sin mostrar los nombres de archivo.
+RewriteRule ^login/?$ auth/login.php [END]
+
+# Redirige las direcciones antiguas con .php a su URL pública equivalente.
+# THE_REQUEST garantiza que una reescritura interna no produzca un ciclo.
+RewriteCond %{THE_REQUEST} \s/+PostulacionBecaMunicipal/index\.php(?:[?\s]) [NC]
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^index\.php$ /PostulacionBecaMunicipal/ [R=302,L]
+
+RewriteCond %{THE_REQUEST} \s/+PostulacionBecaMunicipal/[^?\ ]+\.php(?:[?\s]) [NC]
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^(.+)\.php$ /PostulacionBecaMunicipal/$1 [R=302,L,NE]
+
+# Ejecuta internamente cada página PHP solicitada mediante una ruta sin extensión.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+?)/?$ $1.php [END]
+
+RedirectMatch 404 "(?i)(^|/)\.git(?:/|$)"
+<FilesMatch "(?i)(\.(sql|log|bak|old|tmp|zip|md|ps1)$|^\.env|^composer\.(json|lock)$|^config\.local.*\.php$)">
+    Require all denied
+</FilesMatch>
+
+<Files LEEME.txt>
+    Require all denied
+</Files>

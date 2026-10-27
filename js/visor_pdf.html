@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Vista previa PDF</title>
+        <style>
+            body {
+                margin: 0;
+                background: #e5e7eb;
+                font: 15px Arial;
+                color: #172b4d;
+            }
+            header {
+                position: sticky;
+                top: 0;
+                background: white;
+                padding: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 12px;
+                z-index: 1;
+            }
+            button {
+                padding: 10px;
+                border: 1px solid #cbd5e1;
+                border-radius: 8px;
+                background: white;
+            }
+            main {
+                padding: 12px;
+                text-align: center;
+            }
+            canvas {
+                display: block;
+                margin: auto;
+                max-width: 100%;
+                background: white;
+            }
+            #mensaje {
+                padding: 12px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <button id="anterior" disabled>‹ Anterior</button><span id="pagina">Cargando…</span
+            ><button id="siguiente" disabled>Siguiente ›</button>
+        </header>
+        <p id="mensaje" role="status">Cargando documento…</p>
+        <main><canvas id="pdf" aria-label="Página del documento PDF"></canvas></main>
+        <script src="pdfjs/pdf.min.js"></script>
+        <script src="visor_pdf.js"></script>
+    </body>
+</html>

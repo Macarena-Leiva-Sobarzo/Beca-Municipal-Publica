@@ -1,0 +1,2 @@
+# Los controladores incluyen estos PHP por disco; no necesitan acceso HTTP directo.
+Require all denied

@@ -1,0 +1,12 @@
+PROYECTO LIMPIO PARA HOSTING: PostulacionBecaMunicipal
+
+1. Subir la carpeta completa, incluyendo vendor, los archivos .htaccess y las carpetas documentos y logs.
+2. Revisar las credenciales del hosting en config/config.local.php. En producción se utiliza esta configuración; config/config.desarrollo.php se mantiene para localhost.
+3. Las carpetas documentos y logs deben permitir escritura al servidor. PHP debe tener mysqli y las extensiones requeridas por las librerías.
+4. No se incluyen documentos subidos, registros de ejecución ni respaldos SQL en esta carpeta. La limpieza de archivos no borra datos de la base de datos.
+5. Actualizar archivos sobre una instalación anterior no elimina los documentos que ya estén en el hosting. Para una instalación desde cero, usar una carpeta vacía y la base de datos limpia correspondiente.
+6. Las carpetas documentos y logs se entregan vacías, con archivos de marcador para que se creen al subir el proyecto.
+7. Configurar cron cada cinco minutos para ejecutar correo/procesar_correos.php mediante PHP CLI con la ruta absoluta de esta instalación.
+8. Si se utiliza el otro portal FormularioBecas, conservar su configuración y ubicación: ambos portales pueden consultar documentos compartidos.
+
+La configuración contiene credenciales privadas. El ZIP es para el hosting y no debe publicarse como descarga.

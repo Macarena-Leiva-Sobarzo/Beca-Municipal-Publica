@@ -1,0 +1,2 @@
+# Las descargas pasan por controladores que validan sesión, rol y propietario.
+Require all denied
